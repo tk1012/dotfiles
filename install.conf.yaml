@@ -1,0 +1,15 @@
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- create:
+    - ~/.config/nvim
+
+- link:
+    ~/.zshrc: zshrc
+    ~/.config/nvim/init.vim:
+        force: true
+        path: vimrc
+    ~/.vimrc: vimrc
