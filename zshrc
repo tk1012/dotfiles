@@ -11,7 +11,6 @@ fi
 
 source $ZPLUG_HOME/init.zsh
 
-zplug "changyuheng/zsh-interactive-cd"
 zplug "sorin-ionescu/prezto"
 
 # Install plugins if there are plugins that have not been installed
@@ -30,18 +29,25 @@ zplug load
 if [ ! -d $HOME/.zprezto ]; then
     ln -s $ZPLUG_HOME/repos/sorin-ionescu/prezto $HOME/.zprezto
 fi
+export ZPREZTODIR=$ZPLUG_HOME/repos/sorin-ionescu/prezto
 
+## prezto-contrib
+if [ ! -d $ZPREZTODIR/contrib ]; then
+    git clone --recurse-submodules https://github.com/belak/prezto-contrib $ZPREZTODIR/contrib
+fi
+
+## prezto config files
+setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
   if [ ! -f "${ZDOTDIR:-$HOME}/.${rcfile:t}" ]; then
-    setopt EXTENDED_GLOB
     ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
   fi
-  unsetopt EXTENDED_GLOB
 done
+unsetopt EXTENDED_GLOB
 
 
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ -s "$HOME/.zprezto/init.zsh" ]]; then
+  source "$HOME/.zprezto/init.zsh"
 fi
 
 # Customize to your needs...
