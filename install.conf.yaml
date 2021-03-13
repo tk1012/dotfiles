@@ -13,3 +13,4 @@
         force: true
         path: vimrc
     ~/.vimrc: vimrc
+    ~/.tmux.conf: tmux
