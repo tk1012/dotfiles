@@ -6,6 +6,11 @@ set-option -g mouse on
 set -g prefix C-k
 unbind C-i
 
+# Set new panes to open in current directory
+bind c new-window -c "#{pane_current_path}"
+bind '"' split-window -c "#{pane_current_path}"
+bind % split-window -h -c "#{pane_current_path}"
+
 
 ### TPM
 

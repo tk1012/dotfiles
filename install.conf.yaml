@@ -12,5 +12,8 @@
     ~/.config/nvim/init.vim:
         force: true
         path: vimrc
+    ~/.config/nvim/coc-settings.json:
+        force: true
+        path: coc-settings.json
     ~/.vimrc: vimrc
     ~/.tmux.conf: tmux

@@ -20,8 +20,6 @@ Plug 'morhetz/gruvbox'
 
 Plug 'airblade/vim-gitgutter'
 
-" Plug 'webastien/vim-ctags'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
