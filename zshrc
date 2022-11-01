@@ -1,17 +1,15 @@
 # Zplug
-if [ -d $HOME/.zplug ]; then
-    export ZPLUG_HOME=$HOME/.zplug
-else
-    if [ -d /usr/local/opt/zplug ]; then
-        export ZPLUG_HOME=/usr/local/opt/zplug
-    else
-        exit 1
-    fi
-fi
 
+export ZPLUG_HOME=$HOME/.zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "sorin-ionescu/prezto"
+zplug "zsh-users/zsh-history-substring-search"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "zsh-users/zsh-completions"
+zplug "chrissicool/zsh-256color"
+zplug mafredri/zsh-async, from:github
+zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
