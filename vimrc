@@ -20,7 +20,9 @@ Plug 'morhetz/gruvbox'
 
 Plug 'airblade/vim-gitgutter'
 
+if !exists('g:vscode')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+endif
 
 call plug#end()
 
@@ -253,6 +255,8 @@ let g:clang_format#detect_style_file = 1
 " autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
 autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 
+if !exists('g:vscode')
+
 " --------------------------------- coc.nvim ------------------------------
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -304,3 +308,5 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+endif
